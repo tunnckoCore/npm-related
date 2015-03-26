@@ -8,19 +8,36 @@
 'use strict';
 
 var is = require('is-kindof');
+var meow = require('meow');
 var chalk = require('chalk');
+var multiline = require('multiline');
 var npmRelated = require('./index');
 var symbols = require('log-symbols');
-var argv = process.argv.slice(2);
 var exit = process.exit;
 
-if (is.array(argv) && !argv.length) {
-  var msg = chalk.red('should provide package names');
-  console.error('\n  %s %s\n', symbols.error, msg);
+var cli = meow({
+  help: chalk.gray(multiline.stripIndent(function() {/*
+    Options
+      --help        show this help
+      --version     current version
+
+    Usage
+      npm-related [names...]
+
+    Example
+      npm-related gulp verb utils koa lodash
+
+  */}))
+});
+
+if (is.array(cli.input) && !cli.input.length) {
+  var msg = chalk.red('should provide package names, try run');
+  console.error('\n  %s %s', symbols.error, msg);
+  console.error('  %s %s\n', symbols.error, chalk.blue('npm-related --help'));
   exit(1);
 }
 
-npmRelated(argv, function _cb(err, res) {
+npmRelated(cli.input, function _cb(err, res) {
   if (!is.null(err)) {
     console.error('\n  %s %s\n', symbols.error, chalk.red(err.message));
     exit(1);
