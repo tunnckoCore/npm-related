@@ -17,13 +17,30 @@
     "type": "git",
     "url": "git://github.com/tunnckoCore/npm-related.git"
   },
-  "keywords": [],
+  "keywords": [
+    "async",
+    "cli",
+    "github",
+    "helper",
+    "links",
+    "list",
+    "markdown",
+    "md",
+    "npm",
+    "related",
+    "repo",
+    "repos",
+    "resolve",
+    "template",
+    "utils"
+  ],
   "license": {
     "type": "MIT",
     "url": "https://github.com/tunnckoCore/npm-related/blob/master/license.md"
   },
   "dependencies": {
     "chalk": "~1.0.0",
+    "helper-related": "~0.4.0",
     "is-kindof": "~1.0.0",
     "log-symbols": "~1.0.2"
   },

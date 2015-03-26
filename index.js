@@ -12,12 +12,10 @@ var related = require('helper-related');
 
 module.exports = function npmRelated(names, options, callback) {
   if (!is.array(names) && !is.string(names)) {
-    throw new TypeError('[npm-related] expect `names` to be string or array')
-    return;
+    throw new TypeError('[npm-related] expect `names` to be string or array');
   }
   if (is.undefined(options)) {
     throw new Error('[npm-related] expect at least 2 arguments');
-    return;
   }
   if (is.function(options)) {
     callback = options;
