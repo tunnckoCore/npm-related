@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * npm-related <https://github.com/tunnckoCore/npm-related>
  *
