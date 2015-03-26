@@ -40,6 +40,7 @@ npmRelated(['verb', 'utils'], function callback(err, res) {
 to the gulp, mocha and koa project's homepage
 
 ```
+npm i -g npm-related
 npm-related gulp mocha koa
 
 - [gulp](http://gulpjs.com): The streaming build system
@@ -47,6 +48,18 @@ npm-related gulp mocha koa
 - [koa](https://github.com/koajs/koa): Koa web app framework
 
 ```
+
+
+## Related
+- [helper-related](https://github.com/helpers/helper-related): Template helper for generating a list of links to the homepages of related GitHub/npm projects.
+- [utils](https://github.com/jonschlinkert/utils): Fast, generic JavaScript/node.js utility functions.
+- [chalk](https://github.com/sindresorhus/chalk): Terminal string styling done right. Much color.
+- [gitclone](https://github.com/tunnckoCore/gitclone): Clone a Github repository with only `username/repo`. Support CLI and Promise.
+- [kind-of](https://github.com/jonschlinkert/kind-of): Get the native type of a value.
+- [is-kindof](https://github.com/tunnckoCore/is-kindof): Thin wrapper around `kind-of` and in bonus functional api.
+- [meow](https://github.com/sindresorhus/meow): CLI app helper
+- [npmls](https://github.com/tunnckoCore/npmls): Streaming list of installed node modules. More compact and small. Support N and NVM version managers.
+
 
 ## Author
 **Charlike Mike Reagent**
