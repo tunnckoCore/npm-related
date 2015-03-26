@@ -6,19 +6,47 @@
 ```
 npm i --save npm-related
 npm test
+npm-related --help
 ```
 
 
-## Usage
+## API
 > For more use-cases see the [tests](./test.js)
 
+### [npmRelated](./index.js#L23)
+> Generating a list of markdown links to the homepages of related NPM projects.
+
+- `<names>` **{Array|String}** name(s) of the wanted npm package(s)
+- `[options]` **{Object}** options to pass to [helper-related] or `callback`
+- `callback` **{Function}** node-style callback function `(err, res)`
+
+**Example**
 ```js
 var npmRelated = require('npm-related');
+
+npmRelated(['verb', 'utils'], function callback(err, res) {
+  if (err) {
+    console.error(err.message);
+    return;
+  }
+  console.log(res);
+  //=> list of markdown links
+});
 ```
 
 
-## API / CLI
+## CLI
+> run `npm-related --help` or try this one, which will output links
+to the gulp, mocha and koa project's homepage
 
+```
+npm-related gulp mocha koa
+
+- [gulp](http://gulpjs.com): The streaming build system
+- [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [koa](https://github.com/koajs/koa): Koa web app framework
+
+```
 
 ## Author
 **Charlike Mike Reagent**
@@ -60,3 +88,5 @@ Released under the [`MIT`][license-url] license.
 ***
 
 _Powered and automated by [kdf](https://github.com/tunnckoCore), March 26, 2015_
+
+[helper-related]: https://github.com/helpers/helper-related

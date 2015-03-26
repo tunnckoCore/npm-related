@@ -10,6 +10,16 @@
 var is = require('is-kindof');
 var related = require('helper-related');
 
+/**
+ * Generating a list of markdown links to the homepages
+ * of related NPM projects.
+ *
+ * @name   npmRelated
+ * @param  {Array|String}   `<names>` name(s) of the wanted npm package(s)
+ * @param  {Object}         `[options]` options to pass to [helper-related] or `callback`
+ * @param  {Function}       `callback` node-style callback function `(err, res)`
+ * @api public
+ */
 module.exports = function npmRelated(names, options, callback) {
   if (!is.array(names) && !is.string(names)) {
     throw new TypeError('[npm-related] expect `names` to be string or array');
@@ -23,7 +33,7 @@ module.exports = function npmRelated(names, options, callback) {
   }
   options = options || {};
 
-  related(options)(names, function _related(err, res) {
+  return related(options)(names, function _related(err, res) {
     callback(err, res);
   });
 };
