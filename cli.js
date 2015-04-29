@@ -29,7 +29,8 @@ var cli = meow({
 
     Example
       npm-related gulp verb utils koa lodash
-      npm-related gulp verb utils koa lodash --truncate
+      npm-related micromatch assemble --truncate
+      npm-related remarkable express --words 2
 
   */}))
 });
