@@ -21,6 +21,8 @@ var cli = meow({
     Options
       --help        show this help
       --version     current version
+      --truncate    to truncate the description or not
+      --words       maximum of the words of description
 
     Usage
       npm-related [names...]
@@ -38,7 +40,7 @@ if (is.array(cli.input) && !cli.input.length) {
   exit(1);
 }
 
-npmRelated(cli.input, function _cb(err, res) {
+npmRelated(cli.input, cli.flags, function _cb(err, res) {
   if (!is.null(err)) {
     console.error('\n  %s %s\n', symbols.error, chalk.red(err.message));
     exit(1);
