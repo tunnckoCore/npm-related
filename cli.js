@@ -21,14 +21,15 @@ var cli = meow({
     Options
       --help        show this help
       --version     current version
-      --truncate    to truncate the description or not
-      --words       maximum of the words of description
+      --truncate    truncate description (to 15 words by default)
+      --words       maximum words of description
 
     Usage
       npm-related [names...]
 
     Example
       npm-related gulp verb utils koa lodash
+      npm-related gulp verb utils koa lodash --truncate
 
   */}))
 });
@@ -39,6 +40,9 @@ if (is.array(cli.input) && !cli.input.length) {
   console.error('  %s %s\n', symbols.error, chalk.blue('npm-related --help'));
   exit(1);
 }
+
+// dont truncate description by default
+cli.flags.truncate = cli.flags.truncate === true ? true : false;
 
 npmRelated(cli.input, cli.flags, function _cb(err, res) {
   if (!is.null(err)) {
