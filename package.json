@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "chalk": "~1.0.0",
-    "helper-related": "~0.6.2",
+    "helper-related": "~0.7.1",
     "is-kindof": "~1.0.0",
     "log-symbols": "~1.0.2",
     "meow": "~3.1.0",
