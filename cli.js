@@ -23,6 +23,7 @@ var cli = meow({
       --version     current version
       --truncate    truncate description (to 15 words by default)
       --words       maximum words of description
+      --remove      glob patterns (can be comma separated)
 
     Usage
       npm-related [names...]
@@ -31,9 +32,16 @@ var cli = meow({
       npm-related gulp verb utils koa lodash
       npm-related micromatch assemble --truncate
       npm-related remarkable express --words 2
+      npm-related template assemble remarkable --remove assemble
 
   */}))
 });
+
+var remove = cli.flags.remove || '';
+if (remove.indexOf(',') !== -1) {
+  remove = remove.split(',');
+}
+cli.flags.remove = remove;
 
 if (is.array(cli.input) && !cli.input.length) {
   var msg = chalk.red('should provide package names, try run');
