@@ -1,6 +1,6 @@
 {
   "name": "npm-related",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Thin wrapper on top of `helper-related` for generating a list of links to the homepages of related NPM projects.",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
