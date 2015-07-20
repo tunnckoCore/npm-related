@@ -1,63 +1,84 @@
 #!/usr/bin/env node
-/**
+/*!
  * npm-related <https://github.com/tunnckoCore/npm-related>
  *
- * Copyright (c) 2015 Charlike Mike Reagent, contributors.
+ * Copyright (c) 2015 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
  * Released under the MIT license.
  */
 
-'use strict';
+'use strict'
 
-var is = require('is-kindof');
-var meow = require('meow');
-var chalk = require('chalk');
-var multiline = require('multiline');
-var npmRelated = require('./index');
-var symbols = require('log-symbols');
-var exit = process.exit;
+var exit = process.exit
+var red = require('ansi-red')
+var gray = require('ansi-gray')
+var error = require('error-symbol')
+var related = require('./index')
+var minimist = require('minimist')
+var multiline = require('multiline')
 
-var cli = meow({
-  help: chalk.gray(multiline.stripIndent(function() {/*
-    Options
-      --help        show this help
-      --version     current version
-      --truncate    truncate description (to 15 words by default)
-      --words       maximum words of description
-      --remove      glob patterns (can be comma separated)
+var cli = minimist(process.argv.slice(2), {
+  alias: {
+    help: 'h',
+    version: 'v'
+  }
+})
 
-    Usage
-      npm-related [names...]
+if (cli.help) {
+  console.log(gray(multiline.stripIndent(function () { /*
+    Command-line app for generating a list of markdown links to
+    the homepages of related npm/github projects. Can be used as
+    API of `helper-related` package.
 
-    Example
-      npm-related gulp verb utils koa lodash
-      npm-related micromatch assemble --truncate
-      npm-related remarkable express --words 2
-      npm-related template assemble remarkable --remove assemble
+      Options (plus any options introduced in helper-related)
+        --help        show this help
+        --version     current version
+        --truncate    truncate description (to 15 words by default)
+        --words       maximum words of description
+        --remove      glob patterns (can be comma separated)
 
-  */}))
-});
+      Usage
+        npm-related [names...] [options]
 
-var remove = cli.flags.remove || '';
-if (remove.indexOf(',') !== -1) {
-  remove = remove.split(',');
+      Example
+        npm-related gulp verb utils koa lodash
+        npm-related micromatch assemble --truncate
+        npm-related remarkable express --words 2
+        npm-related template assemble remarkable --remove assemble
+
+      Readme:  https://github.com/tunnckoCore/npm-related
+      Helper:  https://github.com/helpers/helper-related
+      Report bugs:  https://github.com/tunnckoCore/npm-related/issues
+
+  */})))
+  exit(0)
 }
-cli.flags.remove = remove;
 
-if (is.array(cli.input) && !cli.input.length) {
-  var msg = chalk.red('should provide package names, try run');
-  console.error('\n  %s %s', symbols.error, msg);
-  console.error('  %s %s\n', symbols.error, chalk.blue('npm-related --help'));
-  exit(1);
+if (cli.version) {
+  console.log(require('./package.json').version)
+  exit(0)
+}
+
+cli.remove = cli.remove || ''
+if (cli.remove.indexOf(',') !== -1) {
+  cli.remove = cli.remove.split(',')
+}
+
+if (Array.isArray(cli._) && !cli._.length) {
+  var msg = red('should provide package name(s), try run')
+  console.error('\n  %s %s', red(error), msg)
+  console.error('  %s %s\n', red(error), 'npm-related --help')
+  exit(1)
 }
 
 // dont truncate description by default
-cli.flags.truncate = cli.flags.truncate === true ? true : false;
+cli.truncate = cli.truncate || false
 
-npmRelated(cli.input, cli.flags, function _cb(err, res) {
-  if (!is.null(err)) {
-    console.error('\n  %s %s\n', symbols.error, chalk.red(err.message));
-    exit(1);
+related(cli._, cli, function _cb (err, res) {
+  if (err) {
+    console.error('\n  %s %s\n', red(error), red(err.message))
+    exit(1)
+    return
   }
-  console.log('%s\n', chalk.gray(res.trim().replace(/\s*\*\s+/g,'\n- ')));
-  exit(0);
-});
+  console.log('%s\n', gray(res.trim().replace(/\s*\*\s+/g, '\n- ')))
+  exit(0)
+})

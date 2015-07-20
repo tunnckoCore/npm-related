@@ -1,21 +1,24 @@
 {
   "name": "npm-related",
   "version": "1.0.2",
-  "description": "Thin wrapper on top of `helper-related` for generating a list of links to the homepages of related NPM projects.",
+  "description": "Command-line app for generating a list of markdown links to the homepages of related npm/github projects. Can be used as API of `helper-related` package.",
+  "repository": "tunnckoCore/npm-related",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "lint": "jshint index.js && jscs index.js --reporter inline",
-    "test": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "test-travis": "istanbul cover _mocha --report lcovonly"
+    "test": "standard && node test.js"
   },
-  "author": {
-    "name": "Charlike Mike Reagent",
-    "email": "mameto_100@mail.bg",
-    "url": "https://github.com/tunnckoCore"
+  "dependencies": {
+    "ansi-gray": "~0.1.1",
+    "ansi-red": "~0.1.1",
+    "error-symbol": "~0.1.0",
+    "helper-related": "~0.9.0",
+    "minimist": "~1.1.1",
+    "multiline": "~1.0.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tunnckoCore/npm-related.git"
+  "devDependencies": {
+    "assertit": "^0.1.0"
   },
   "keywords": [
     "async",
@@ -34,23 +37,5 @@
     "template",
     "utils"
   ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/tunnckoCore/npm-related/blob/master/license.md"
-  },
-  "dependencies": {
-    "chalk": "~1.0.0",
-    "helper-related": "~0.7.1",
-    "is-kindof": "~1.0.0",
-    "log-symbols": "~1.0.2",
-    "meow": "~3.1.0",
-    "multiline": "~1.0.2"
-  },
-  "devDependencies": {
-    "istanbul-harmony": "~0.3.1",
-    "mocha": "~2.2.1"
-  },
-  "bin": {
-    "npm-related": "cli.js"
-  }
+  "bin": "cli.js"
 }
