@@ -1,5 +1,15 @@
 
 
+## 2.0.0 / 2015-07-20
+- Release v2.0.0 / npm@v2.0.0
+- update related
+- refactor, close #2
+  + bump other deps
+  + bump `helper-related@0.9` (with more options check it)
+  + better cli
+  + simplify API
+  + repo boilerplate
+
 ## 1.0.2 / 2015-05-02
 - Release v1.0.2 / npm@v1.0.2
 - **update** readme
