@@ -43,23 +43,26 @@ to the assemble, remarkable and template project's homepage
 
 ```
 npm i -g npm-related
-npm-related template assemble remarkable --words 6
+npm-related vez benz verb --words 10
 
-- [assemble](http://assemble.io): Static site generator for Grunt.js, Yeoman… [more](http://assemble.io)
-- [remarkable](https://github.com/jonschlinkert/remarkable): Markdown parser, done right. 100% Commonmark… [more](https://github.com/jonschlinkert/remarkable)
-- [template](https://github.com/jonschlinkert/template): Render templates using any engine. Supports,… [more](https://github.com/jonschlinkert/template)
+- [benz](https://github.com/tunnckocore/benz): Compose your control flow with absolute elegance. Support async/await, callbacks,… [more](https://github.com/tunnckocore/benz)
+- [verb](https://github.com/assemble/verb): Documentation generator for GitHub projects. Extremely powerful, easy to use,… [more](https://github.com/assemble/verb)
+- [vez](https://github.com/tunnckocore/vez): Middleware composition at new level. Ultimate alternative to `ware`, `plugins`,… [more](https://github.com/tunnckocore/vez)
 
 ```
 
 
 ## Related
-- [detect-installed](https://github.com/tunnckoCore/detect-installed): Checks that given package name is installed locally (in current working directory) or globally.
-- [gitclone](https://github.com/tunnckoCore/gitclone): Clone a Github repository with only `username/repo`. Support CLI and Promise.
-- [helper-related](https://github.com/helpers/helper-related): Template helper for generating a list of links to the homepages of related GitHub/npm projects.
-- [is-kindof](https://github.com/tunnckoCore/is-kindof): Thin wrapper around `kind-of` and in bonus functional api.
-- [is-missing](https://github.com/tunnckoCore/is-missing): Check that given `name` or `user/repo` exists in npm registry or in github as organization/user… [more](https://github.com/tunnckoCore/is-missing)
-- [is-installed](https://github.com/tunnckoCore/is-installed): Checks that given package is installed on the system - globally or locally.
-- [npm-pkgs-filter](https://github.com/tunnckoCore/npm-pkgs-filter): Filter the list of user npm packages from the [npmjs.com](https://npmjs.com) using glob pattern, function, array… [more](https://github.com/tunnckoCore/npm-pkgs-filter)
+- [apidocs-cli](https://github.com/tunnckocore/apidocs-cli): Async CLI for automatically generating API docs from code comments… [more](https://github.com/tunnckocore/apidocs-cli)
+- [benz](https://github.com/tunnckocore/benz): Compose your control flow with absolute elegance. Support async/await, callbacks,… [more](https://github.com/tunnckocore/benz)
+- [composer](https://github.com/jonschlinkert/composer): Boilerplate for creating a node.js application based on Template, vinyl… [more](https://github.com/jonschlinkert/composer)
+- [detect-installed](https://github.com/tunnckocore/detect-installed): Checks that given package name is installed locally or globally.… [more](https://github.com/tunnckocore/detect-installed)
+- [generate](https://github.com/generate/generate): Project generator, for node.js.
+- [gitclone](https://github.com/tunnckoCore/gitclone): Clone a Github repository with only `username/repo`. Support CLI and… [more](https://github.com/tunnckoCore/gitclone)
+- [helper-related](https://github.com/helpers/helper-related): Template helper for generating a list of links to the… [more](https://github.com/helpers/helper-related)
+- [npm-pkgs-filter](https://github.com/tunnckoCore/npm-pkgs-filter): Filter the list of user npm packages from the [npmjs.com](https://npmjs.com)… [more](https://github.com/tunnckoCore/npm-pkgs-filter)
+- [verb](https://github.com/assemble/verb): Documentation generator for GitHub projects. Extremely powerful, easy to use,… [more](https://github.com/assemble/verb)
+- [vez](https://github.com/tunnckocore/vez): Middleware composition at new level. Ultimate alternative to `ware`, `plugins`,… [more](https://github.com/tunnckocore/vez)
 
 
 ## Contributing
