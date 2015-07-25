@@ -31,7 +31,5 @@ module.exports = function npmRelated (names, options, callback) {
     throw new TypeError('npm-related: expect callback')
   }
 
-  return related(options)(names, function (err, res) {
-    callback(err, res)
-  })
+  return related(options)(names, callback)
 }
