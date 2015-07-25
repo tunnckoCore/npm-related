@@ -53,7 +53,7 @@ npm-related vez benz verb --words 10
 
 
 ## Related
-- [apidocs-cli](https://github.com/tunnckocore/apidocs-cli): Async CLI for automatically generating API docs from code comments… [more](https://github.com/tunnckocore/apidocs-cli)
+- [apidocs-cli](https://github.com/tunnckocore/apidocs-cli): Command-line app for generating API docs from code comments… [more](https://github.com/tunnckocore/apidocs-cli)
 - [benz](https://github.com/tunnckocore/benz): Compose your control flow with absolute elegance. Support async/await, callbacks,… [more](https://github.com/tunnckocore/benz)
 - [composer](https://github.com/jonschlinkert/composer): Boilerplate for creating a node.js application based on Template, vinyl… [more](https://github.com/jonschlinkert/composer)
 - [detect-installed](https://github.com/tunnckocore/detect-installed): Checks that given package name is installed locally or globally.… [more](https://github.com/tunnckocore/detect-installed)
