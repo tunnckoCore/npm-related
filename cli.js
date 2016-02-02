@@ -15,11 +15,13 @@ var error = require('error-symbol')
 var related = require('./index')
 var minimist = require('minimist')
 var multiline = require('multiline')
+var get = require('get-value')
 
 var cli = minimist(process.argv.slice(2), {
   alias: {
     help: 'h',
-    version: 'v'
+    version: 'v',
+    prop: 'p'
   }
 })
 
@@ -35,6 +37,7 @@ if (cli.help) {
         --truncate    truncate description (to 15 words by default)
         --words       maximum words of description
         --remove      glob patterns (can be comma separated)
+        --prop        package.json property from which to read the list
 
       Usage
         npm-related [names...] [options]
@@ -64,10 +67,14 @@ if (cli.remove.indexOf(',') !== -1) {
 }
 
 if (Array.isArray(cli._) && !cli._.length) {
-  var msg = red('should provide package name(s), try run')
-  console.error('\n  %s %s', red(error), msg)
-  console.error('  %s %s\n', red(error), 'npm-related --help')
-  exit(1)
+  var pkg = require('./package.json')
+  cli._ = cli.prop ? get(pkg, cli.prop) : (get(pkg, 'related') || get(pkg, 'verb.related.list'))
+  if (!cli._ || (Array.isArray(cli._) && !cli._.length)) {
+    var msg = red('add `verb.related.list` or `related` to package.json or give package names')
+    console.error('\n  %s %s', red(error), msg)
+    console.error('  %s %s\n', red(error), 'npm-related --help')
+    exit(1)
+  }
 }
 
 // dont truncate description by default
