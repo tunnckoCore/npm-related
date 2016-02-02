@@ -2,7 +2,7 @@
 /*!
  * npm-related <https://github.com/tunnckoCore/npm-related>
  *
- * Copyright (c) 2015 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
+ * Copyright (c) 2015-2016 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
  * Released under the MIT license.
  */
 
@@ -10,12 +10,12 @@
 
 var exit = process.exit
 var red = require('ansi-red')
+var get = require('get-value')
 var gray = require('ansi-gray')
 var error = require('error-symbol')
-var related = require('./index')
+var related = require('helper-related')
 var minimist = require('minimist')
 var multiline = require('multiline')
-var get = require('get-value')
 
 var cli = minimist(process.argv.slice(2), {
   alias: {
@@ -68,9 +68,10 @@ if (cli.remove.indexOf(',') !== -1) {
 
 if (Array.isArray(cli._) && !cli._.length) {
   var pkg = require('load-pkg').sync(process.cwd())
-  cli._ = cli.prop ? get(pkg, cli.prop) : (get(pkg, 'related') || get(pkg, 'verb.related.list'))
+  var prop = cli.configProp || cli.prop || 'metadata.related'
+  cli._ = get(pkg, prop) || get(pkg, 'related') || get(pkg, 'verb.related.list')
   if (!cli._ || (Array.isArray(cli._) && !cli._.length)) {
-    var msg = red('add `verb.related.list` or `related` to package.json or give package names')
+    var msg = red('add `metadata.related` or `verb.related.list` to package.json or give package names')
     console.error('\n  %s %s', red(error), msg)
     console.error('  %s %s\n', red(error), 'npm-related --help')
     exit(1)
@@ -80,12 +81,12 @@ if (Array.isArray(cli._) && !cli._.length) {
 // dont truncate description by default
 cli.truncate = cli.truncate || false
 
-related(cli._, cli, function _cb (err, res) {
+related(cli)(cli._, cli, function _cb (err, res) {
   if (err) {
     console.error('\n  %s %s\n', red(error), red(err.message))
     exit(1)
     return
   }
-  console.log('%s\n', gray(res.trim().replace(/\s*\*\s+/g, '\n- ')))
+  console.log('%s\n', gray(res.trim().replace(/#readme\)/g, ')')))
   exit(0)
 })

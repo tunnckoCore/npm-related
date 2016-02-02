@@ -1,9 +1,10 @@
 {
   "name": "npm-related",
   "version": "2.0.1",
-  "description": "Command-line app for generating a list of markdown links to the homepages of related npm/github projects. Can be used as API of `helper-related` package.",
+  "description": "Command-line app for generating a list of links to the homepages of related GitHub/npm projects. Using `helper-related`.",
   "repository": "tunnckoCore/npm-related",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "precommit.silent": true,
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -20,8 +21,13 @@
     "multiline": "^1.0.2"
   },
   "devDependencies": {
-    "assertit": "^0.1.0"
+    "assertit": "^0.1.0",
+    "pre-commit": "*"
   },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
   "keywords": [
     "async",
     "cli",

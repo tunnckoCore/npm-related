@@ -1,6 +1,6 @@
 # [npm-related][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
 
-> Command-line app for generating a list of markdown links to the homepages of related npm/github projects. Can be used as API of `helper-related` package.
+> Command-line app for generating a list of links to the homepages of related GitHub/npm projects. Using `helper-related`.
 
 [![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
 
@@ -8,62 +8,37 @@
 ## Install
 ```
 npm i npm-related --save
-npm test
 ```
 
-## API
-### [npmRelated](./index.js#L23)
-> Generating a list of markdown links to the homepages of related NPM projects.
 
-**Params**
+## Usage
+> For more use-cases see the [tests](./test.js)
 
-- `<names>` **{Array|String}** name(s) of the wanted npm package(s)
-- `[options]` **{Object}** options to pass to [helper-related] or `callback`
-- `<callback>` **{Function}** node-style callback function `(err, res)`
-
-**Example**
+If you install it locally, just `helper-related` is exposed
 
 ```js
-var npmRelated = require('npm-related')
-
-npmRelated(['verb', 'utils'], function (err, res) {
-  if (err) {
-    console.error(err.message)
-    return
-  }
-  console.log(res)
-  //=> list of markdown links
-})
+const npmRelated = require('npm-related')
 ```
-
 
 ## CLI
-> run `npm-related --help` or try this one, which will output links
-to the assemble, remarkable and template project's homepage
+> Install it globally then run `npm-related --help` or try this one, rendered as below section
 
 ```
-npm i -g npm-related
-npm-related vez benz verb --words 10
+npm i npm-related --global
+npm-related letta relike redolent
 
-- [benz](https://github.com/tunnckocore/benz): Compose your control flow with absolute elegance. Support async/await, callbacks,… [more](https://github.com/tunnckocore/benz)
-- [verb](https://github.com/assemble/verb): Documentation generator for GitHub projects. Extremely powerful, easy to use,… [more](https://github.com/assemble/verb)
-- [vez](https://github.com/tunnckocore/vez): Middleware composition at new level. Ultimate alternative to `ware`, `plugins`,… [more](https://github.com/tunnckocore/vez)
-
+* [letta](https://www.npmjs.com/package/letta): Let's move to promises! Drop-in replacement for `co@4`, but on steroids. Accepts sync, async and generator functions. | [homepage](https://github.com/hybridables/letta)
+* [redolent](https://www.npmjs.com/package/redolent): Simple promisify **everything** (string, array, stream, boolean, sync/async function, etc) with sane defaults. | [homepage](https://github.com/hybridables/redolent)
+* [relike](https://www.npmjs.com/package/relike): Simple promisify a callback-style function with sane defaults. Support promisify-ing sync functions. | [homepage](https://github.com/hybridables/relike)
 ```
 
 
 ## Related
-- [apidocs-cli](https://github.com/tunnckocore/apidocs-cli): Command-line app for generating API docs from code comments… [more](https://github.com/tunnckocore/apidocs-cli)
-- [benz](https://github.com/tunnckocore/benz): Compose your control flow with absolute elegance. Support async/await, callbacks,… [more](https://github.com/tunnckocore/benz)
-- [composer](https://github.com/jonschlinkert/composer): Boilerplate for creating a node.js application based on Template, vinyl… [more](https://github.com/jonschlinkert/composer)
-- [detect-installed](https://github.com/tunnckocore/detect-installed): Checks that given package name is installed locally or globally.… [more](https://github.com/tunnckocore/detect-installed)
-- [generate](https://github.com/generate/generate): Project generator, for node.js.
-- [gitclone](https://github.com/tunnckoCore/gitclone): Clone a Github repository with only `username/repo`. Support CLI and… [more](https://github.com/tunnckoCore/gitclone)
-- [helper-related](https://github.com/helpers/helper-related): Template helper for generating a list of links to the… [more](https://github.com/helpers/helper-related)
-- [npm-pkgs-filter](https://github.com/tunnckoCore/npm-pkgs-filter): Filter the list of user npm packages from the [npmjs.com](https://npmjs.com)… [more](https://github.com/tunnckoCore/npm-pkgs-filter)
-- [verb](https://github.com/assemble/verb): Documentation generator for GitHub projects. Extremely powerful, easy to use,… [more](https://github.com/assemble/verb)
-- [vez](https://github.com/tunnckocore/vez): Middleware composition at new level. Ultimate alternative to `ware`, `plugins`,… [more](https://github.com/tunnckocore/vez)
-
+* [letta](https://www.npmjs.com/package/letta): Let's move to promises! Drop-in replacement for `co@4`, but on steroids. Accepts sync, async and generator functions. | [homepage](https://github.com/hybridables/letta)
+* [redolent](https://www.npmjs.com/package/redolent): Simple promisify **everything** (string, array, stream, boolean, sync/async function, etc) with sane defaults. | [homepage](https://github.com/hybridables/redolent)
+* [relike](https://www.npmjs.com/package/relike): Simple promisify a callback-style function with sane defaults. Support promisify-ing sync functions. | [homepage](https://github.com/hybridables/relike)
+* [apidocs-cli](https://www.npmjs.com/package/apidocs-cli): Command-line app for generating API docs from code comments. Can be used as API of helper-apidocs package. | [homepage](https://github.com/tunnckocore/apidocs-cli)
+* [parse-function](https://www.npmjs.com/package/parse-function): Parse a function, arrow function or string to object with name, args, params and body properties. | [homepage](https://github.com/tunnckocore/parse-function)
 
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/npm-related/issues/new).  
@@ -78,7 +53,7 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [npmjs-url]: https://www.npmjs.com/package/npm-related
 [npmjs-img]: https://img.shields.io/npm/v/npm-related.svg?label=npm-related
 
-[license-url]: https://github.com/tunnckoCore/npm-related/blob/master/LICENSE.md
+[license-url]: https://github.com/tunnckoCore/npm-related/blob/master/LICENSE
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg
 
 
@@ -116,5 +91,5 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [freenode-url]: http://webchat.freenode.net/?channels=charlike
 [freenode-img]: https://img.shields.io/badge/freenode-%23charlike-5654a4.svg
 
-[new-message-url]: https://github.com/tunnckoCore/messages
-[new-message-img]: https://img.shields.io/badge/send%20me-message-green.svg
+[new-message-url]: https://github.com/tunnckoCore/ama
+[new-message-img]: https://img.shields.io/badge/ask%20me-anything-green.svg
