@@ -14,6 +14,7 @@ var related = require('./index')
 
 test('should get a package.json from npm:', function (done) {
   related('micromatch', function (err, res) {
+    test.ifError(err)
     test.strictEqual(/\[micromatch\]/.test(res), true)
     done()
   })
@@ -21,6 +22,7 @@ test('should get a package.json from npm:', function (done) {
 
 test('should get an array of package.json files:', function (done) {
   related(['micromatch', 'assemble'], function (err, res) {
+    test.ifError(err)
     test.strictEqual(/\[micromatch\]/.test(res), true)
     test.strictEqual(/\[assemble\]/.test(res), true)
     done()
@@ -30,6 +32,7 @@ test('should get an array of package.json files:', function (done) {
 test('should remove a name passed on `options.remove`:', function (done) {
   var list = ['assemble', 'verb', 'remarkable', 'snippet']
   related(list, {remove: 'remarkable'}, function (err, res) {
+    test.ifError(err)
     test.strictEqual(/\[assemble\]/.test(res), true)
     test.strictEqual(/\[remarkable\]/.test(res), false)
     test.strictEqual(/\[verb\]/.test(res), true)
@@ -41,6 +44,7 @@ test('should remove a name passed on `options.remove`:', function (done) {
 test('should remove a name passed on `options.remove`:', function (done) {
   var list = ['assemble', 'verb', 'remarkable', 'snippet']
   related(list, {remove: ['remarkable', 'verb']}, function (err, res) {
+    test.ifError(err)
     test.strictEqual(/\[assemble\]/.test(res), true)
     test.strictEqual(/\[remarkable\]/.test(res), false)
     test.strictEqual(/\[verb\]/.test(res), false)
