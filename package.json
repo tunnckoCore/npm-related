@@ -1,6 +1,6 @@
 {
   "name": "npm-related",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Command-line app for generating a list of links to the homepages of related GitHub/npm projects. Using `helper-related`.",
   "repository": "tunnckoCore/npm-related",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",

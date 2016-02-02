@@ -1,5 +1,12 @@
 
 
+## 3.0.0 / 2015-02-03
+- Release v3.0.0 / npm@v3.0.0
+- index.js just exposes `helper-related` as api
+- update boilerplate
+- close #4 - cli load array of names from cwd package.json if no arguments
+  + like when you just run `npm-related` without flags and package names
+
 ## 2.0.1 / 2015-07-25
 - Release v2.0.1 / npm@v2.0.1
 - update related
