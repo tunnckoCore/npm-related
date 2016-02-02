@@ -67,7 +67,7 @@ if (cli.remove.indexOf(',') !== -1) {
 }
 
 if (Array.isArray(cli._) && !cli._.length) {
-  var pkg = require('./package.json')
+  var pkg = require('load-pkg').sync(process.cwd())
   cli._ = cli.prop ? get(pkg, cli.prop) : (get(pkg, 'related') || get(pkg, 'verb.related.list'))
   if (!cli._ || (Array.isArray(cli._) && !cli._.length)) {
     var msg = red('add `verb.related.list` or `related` to package.json or give package names')
