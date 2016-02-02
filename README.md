@@ -34,11 +34,14 @@ npm-related letta relike redolent
 
 
 ## Related
-* [letta](https://www.npmjs.com/package/letta): Let's move to promises! Drop-in replacement for `co@4`, but on steroids. Accepts sync, async and generator functions. | [homepage](https://github.com/hybridables/letta)
-* [redolent](https://www.npmjs.com/package/redolent): Simple promisify **everything** (string, array, stream, boolean, sync/async function, etc) with sane defaults. | [homepage](https://github.com/hybridables/redolent)
-* [relike](https://www.npmjs.com/package/relike): Simple promisify a callback-style function with sane defaults. Support promisify-ing sync functions. | [homepage](https://github.com/hybridables/relike)
-* [apidocs-cli](https://www.npmjs.com/package/apidocs-cli): Command-line app for generating API docs from code comments. Can be used as API of helper-apidocs package. | [homepage](https://github.com/tunnckocore/apidocs-cli)
-* [parse-function](https://www.npmjs.com/package/parse-function): Parse a function, arrow function or string to object with name, args, params and body properties. | [homepage](https://github.com/tunnckocore/parse-function)
+* [letta](https://github.com/hybridables/letta): Let's move to promises! Drop-in replacement for `co@4`, but on steroids. Accepts sync, async and generator functions.
+* [redolent](https://github.com/hybridables/redolent): Simple promisify **everything** (string, array, stream, boolean, sync/async function, etc) with sane defaults.
+* [relike](https://github.com/hybridables/relike): Simple promisify a callback-style function with sane defaults. Support promisify-ing sync functions.
+* [apidocs-cli](https://github.com/tunnckocore/apidocs-cli): Command-line app for generating API docs from code comments. Using `helper-apidocs`.
+* [helper-apidocs](https://github.com/jonschlinkert/helper-apidocs): Template helper for automatically generating API docs from code comments.
+* [helper-related](https://github.com/helpers/helper-related): Template helper for generating a list of links to the homepages of related GitHub/npm projects.
+* [parse-function](https://github.com/tunnckocore/parse-function): Parse a function, arrow function or string to object with name, args, params and body properties.
+
 
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/npm-related/issues/new).  
